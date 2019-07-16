@@ -1,0 +1,31 @@
+.new-tweet {
+  padding: 3em;
+}
+
+.counter {
+  float: right;
+  font-family: bungee, sans-serif;
+}
+
+#tweet-button {
+  float: left;
+  color: white; 
+  background-color: #4056A1;
+  font-family: bungee, sans-serif;
+}
+
+#input-text {
+  width: 100%;
+  font-family: source sans pro, sans-serif;
+  border: none;
+  background: transparent;
+  resize: none;
+  border-bottom: solid 2px black;
+  margin-bottom: 10px;
+  height: 45px;
+  outline: 0;
+}
+
+#input-text::-webkit-input-placeholder {
+  font-weight: bold;
+}

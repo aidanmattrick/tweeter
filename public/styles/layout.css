@@ -21,6 +21,13 @@ body {
   font-family: source sans pro, sans-serif;
 }
 
+main {
+  width: 90%;
+  /*margin-top: 520px;*/
+  margin: 0 5%; 
+  text-align: center;
+}
+
 
 
 /*
