@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 "use strict";
 
 // Simulates the kind of delay we see with network or filesystem operations
@@ -22,6 +23,5 @@ module.exports = function makeDataHelpers(db) {
         callback(null, db.tweets.sort(sortNewestFirst));
       });
     }
-
   };
-}
+};
