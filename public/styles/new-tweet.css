@@ -55,6 +55,22 @@ article {
   border: solid 4px black;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 1px;
+}
+
+article:hover {
+
+  border-right: solid 7px blue;
+  border-bottom: solid 7px blue;
+}
+
+.handle {
+  display: none;
+
+}
+
+article:hover .handle {
+  display: block;
 }
 
 article header{
@@ -69,9 +85,6 @@ article footer{
 
 }
 
-article  {
-  padding-bottom: 1px;
-}
 
 #tweet-text {
   text-align: left;
