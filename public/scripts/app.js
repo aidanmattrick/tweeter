@@ -30,13 +30,35 @@ const tweets = [
 ];
 
 $(document).ready(function() {
-  const $tweetContainer = $('#tweet-container');
-  // const pTag = $('<p>').text('hello').addClass('hello');
-  // const mySpan = $('<span>').text("span here!");
-  // pTag.append(mySpan);
-  // // pTag.text('hello');
-  // tweetContainer.append(pTag);
 
+  const $button = $('#tweet-button');
+  const $form = $('#input-text');
+  
+  //POST TWEET INFO TO /TWEETS
+  $('#form').submit(function(event) {
+    event.preventDefault();
+    $.post('/tweets',$(this).serialize(), (data) =>{
+      console.log(data);
+    });
+  });
+  
+  //GET TWEETS FROM /TWEETS AND PASS TO RENDER TWEETS
+  
+
+
+  /*
+  $button.on('click', function() {
+    event.preventDefault();
+    console.log('Button clicked, performing ajax call...');
+    $.ajax('/tweets', data,{ method: 'POST' })
+      .then(function(data) {
+        console.log($form.serialize(data));
+      });
+  });
+  */
+
+
+  //BUILD A TWEET
   const createTweet = ({user: { handle, name, avatars }, content, created_at}) => {
     const $article = $('<article>');
 

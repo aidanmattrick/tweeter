@@ -18,6 +18,7 @@
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
     <script src="https://kit.fontawesome.com/4057fafd98.js"></script>
+    
 
 
   </head>
@@ -46,7 +47,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
         <section class="new-tweet">
-            <form method="POST" action="/tweets/">
+            <form id="form" method="POST" action="/tweets">
               <textarea id="input-text" name="text" placeholder="What are you humming about?"></textarea>
               <input id="tweet-button" type="submit" value="Tweet">
               <span class="counter">140</span>
