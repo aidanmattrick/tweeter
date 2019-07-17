@@ -32,7 +32,7 @@
 
 .tweet header {
   background-color: #f4f1ec;
-  height: 45px;
+  height: 75px;
 }
 
 .img-user {
@@ -48,6 +48,7 @@
 }
 
 .icons {
+  margin-top: 5px;
   float:right;
 }
 
@@ -56,6 +57,7 @@ article {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 1px;
+  margin-bottom: 20px;
 }
 
 article:hover {
@@ -66,11 +68,13 @@ article:hover {
 
 .handle {
   display: none;
+  float: right;
 
 }
 
 article:hover .handle {
-  display: block;
+  float: right;
+  display: inline-block;
 }
 
 article header{
@@ -85,10 +89,22 @@ article footer{
 
 }
 
-
 .tweet-text {
   text-align: left;
   margin-top: 20px;
   margin-bottom: 40px;
   
 }
+
+#flag {
+  color: blue;
+  padding-right: 5px;
+}
+#retweet {
+  color: blue;
+  padding-right: 5px;
+}
+#heart {
+  color: blue;
+}
+

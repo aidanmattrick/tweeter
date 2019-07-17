@@ -46,8 +46,8 @@ $(document).ready(function() {
     const $img = $('<img>').attr("src", avatars);
     const $user = $('<span>').text(name);
     const $handle = $('<span>').addClass('handle').text(handle);
-    $headerspan.append($img, $user, $handle);
-    $header.append($headerspan);
+    $headerspan.append($img, $user);
+    $header.append($headerspan, $handle);
 
     // tweet body here
     const $tweetbody = $('<div>').addClass('tweet-text').text(content.text);
@@ -56,8 +56,11 @@ $(document).ready(function() {
     const $footer = $('<footer>');
     const $time = $('<span>').addClass('time').text(created_at);
     const $icons = $('<span>').addClass('icons');
-    const $heart = $('<i>').addClass('fas fa-heart');
-    $icons.append($heart);
+    const $heart = $('<i>').addClass('fas fa-heart').attr('id', 'heart');
+    const $retweet = $('<i>').addClass('fas fa-retweet').attr('id', 'retweet');
+    const $flag = $('<i>').addClass('fas fa-flag').attr('id', 'flag');
+    
+    $icons.append($flag, $retweet, $heart);
     $footer.append($time, $icons);
 
   
