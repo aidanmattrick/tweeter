@@ -29,3 +29,53 @@
 #input-text::-webkit-input-placeholder {
   font-weight: bold;
 }
+
+.tweet header {
+  background-color: #f4f1ec;
+  height: 45px;
+}
+
+.img-user {
+  float: left;
+}
+
+.handle {
+  float: right;
+}
+
+.time {
+  float:left;
+}
+
+.icons {
+  float:right;
+}
+
+article {
+  border: solid 4px black;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+article header{
+  height: 40px;
+  margin-top: 10px;
+}
+
+article footer{
+  border-top: solid 3px black;
+  height: 50px;
+  font-size: 1rem;
+
+}
+
+article  {
+  padding-bottom: 1px;
+}
+
+#tweet-text {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  
+}
