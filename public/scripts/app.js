@@ -37,13 +37,18 @@ $(document).ready(function() {
   //POST TWEET INFO TO /TWEETS
   $('#form').submit(function(event) {
     event.preventDefault();
-    $.post('/tweets',$(this).serialize(), (data) =>{
+    $.post('/tweets',$(this).serialize(), (data) => {
       console.log(data);
+      loadTweet();
     });
   });
   
   //GET TWEETS FROM /TWEETS AND PASS TO RENDER TWEETS
-  
+  const loadTweet = function() {
+    $.get('/tweets', $(this).serialize(), (data) => {
+      renderTweets(data);
+    });
+  };
 
 
   /*
@@ -124,12 +129,14 @@ $(document).ready(function() {
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
   const renderTweets = function(tweets) {
+    $('#tweet-container').empty();
     tweets.forEach((element) => {
       $('#tweet-container').append(createTweet(element));
     });
   };
 
-  renderTweets(tweets);
+  loadTweet();
+  //renderTweets(tweets);
 });
 
 
