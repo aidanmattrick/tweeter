@@ -5,49 +5,39 @@
  */
 
 const tweets = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
+  
 ];
 
 $(document).ready(function() {
+  $('.new-tweet').hide();
 
+  //DROPDOWN BUTTON
+  $('#dropdown-button').click(function() {
+    $('.new-tweet').slideToggle("slow", function() {
+    });
+  });
+
+
+
+
+  //ERROR MESSAGES FOR INCORRECT TWEETS
   const $error = $('<div>').addClass('error');
   const $errormsg = $('<p>');
   $error.append($errormsg);
-
   
   //POST TWEET INFO TO /TWEETS
-
   $('#form').submit(function(event) {
     event.preventDefault();
-    if ($('#input-text').val().length >= 140) {
+    if ($('#input-text').val().length > 140) {
       $errormsg.text("Your message is too long! Messages must be less than 140 characters.");
       $('.mainheader').append($error);
     }
-    else if ($('#input-field').val() === undefined) {
+    /*
+    else if ($('#input-field').val() === null) {
       $errormsg.text("Please enter a message between 1 and 140 characters long.");
       $('.mainheader').append($error);
-    } 
+    }
+    */
     else {
       $.post('/tweets',$(this).serialize(), (data) => {
         console.log(data);
