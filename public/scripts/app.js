@@ -31,16 +31,29 @@ const tweets = [
 
 $(document).ready(function() {
 
-  const $button = $('#tweet-button');
-  const $form = $('#input-text');
+  const $error = $('<div>').addClass('error');
+  const $errormsg = $('<p>');
+  $error.append($errormsg);
+
   
   //POST TWEET INFO TO /TWEETS
+
   $('#form').submit(function(event) {
     event.preventDefault();
-    $.post('/tweets',$(this).serialize(), (data) => {
-      console.log(data);
-      loadTweet();
-    });
+    if ($('#input-text').val().length >= 140) {
+      $errormsg.text("Your message is too long! Messages must be less than 140 characters.");
+      $('.mainheader').append($error);
+    }
+    else if ($('#input-field').val() === undefined) {
+      $errormsg.text("Please enter a message between 1 and 140 characters long.");
+      $('.mainheader').append($error);
+    } 
+    else {
+      $.post('/tweets',$(this).serialize(), (data) => {
+        console.log(data);
+        loadTweet();
+      });
+    }
   });
   
   //GET TWEETS FROM /TWEETS AND PASS TO RENDER TWEETS
