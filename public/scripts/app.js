@@ -17,30 +17,34 @@ $(document).ready(function() {
     });
   });
 
-
-
-
   //ERROR MESSAGES FOR INCORRECT TWEETS
   const $error = $('<div>').addClass('error');
   const $errormsg = $('<p>');
   $error.append($errormsg);
+
+  //HIDE ERROR MSG AFTER SHOWING
+  const $hideError = function() {
+    $error.hide();
+  };
+
   
   //POST TWEET INFO TO /TWEETS
   $('#form').submit(function(event) {
+    $('#input-text').val("");
+    $('.counter').text("140").css('color', 'black');
     event.preventDefault();
     if ($('#input-text').val().length > 140) {
       $errormsg.text("Your message is too long! Messages must be less than 140 characters.");
       $('.mainheader').append($error);
-    }
-    /*
-    else if ($('#input-field').val() === null) {
+     
+      setTimeout($hideError, 5000);
+      
+    } else if (!$('#input-text').val()) {
       $errormsg.text("Please enter a message between 1 and 140 characters long.");
       $('.mainheader').append($error);
-    }
-    */
-    else {
+      setTimeout($hideError, 5000);
+    } else {
       $.post('/tweets',$(this).serialize(), (data) => {
-        console.log(data);
         loadTweet();
       });
     }
@@ -52,18 +56,6 @@ $(document).ready(function() {
       renderTweets(data);
     });
   };
-
-
-  /*
-  $button.on('click', function() {
-    event.preventDefault();
-    console.log('Button clicked, performing ajax call...');
-    $.ajax('/tweets', data,{ method: 'POST' })
-      .then(function(data) {
-        console.log($form.serialize(data));
-      });
-  });
-  */
 
 
   //BUILD A TWEET
@@ -101,32 +93,6 @@ $(document).ready(function() {
   };
 
 
-  //$tweetContainer.append($tweetbody);
-  // $article.append($header);
-  // $tweetContainer.append($article);
-
-
-
-  //   const createTweetElement = function(tweet) {
-  //     let myHTML =
-  //   `
-  //   <header>
-  // <span class="img-user">${avatars}, ${name}</span>
-  // <span class="handle">${handle}</span>
-  //   </header>
-  //   <div id="tweet-text">${tweet.content.text}</div>
-  //   <footer>
-  //       <span class="time">${tweet.created_at}</span>
-  //       <span class="icons">ICONS</span>
-  //   </footer>
-  // `
-  //   ;
-  //     const newtweet = $("article");
-  //     // const header = $("header");
-  
-  //     newtweet.html(myHTML);
-  //     return newtweet;
-  //   };
 
   // loops through tweets
   // calls createTweetElement for each tweet
@@ -139,25 +105,9 @@ $(document).ready(function() {
   };
 
   loadTweet();
-  //renderTweets(tweets);
+  
 });
 
 
 
 
-
-
-
-/*
-    let $tweet = $("article").addClass("tweet")
-
-      .add('header')
-      .add('div')
-      .add('footer');
-    console.log($('.tweet-container'));
-
-
-    $('#tweet-container').append("<p>test</p>");
-    return $tweet;
-  };
-  */
