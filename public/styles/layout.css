@@ -34,8 +34,34 @@ main {
   margin: 0px;
   background-color: red;
   color: white;
+}
+
+@media (min-width: 1024px){
+  #header-and-container {
+    display: flex;
+    flex: auto;
+    margin-top: 120px;
+  }
+  header.mainheader, main.container {
+    width: 100%;
+    /*margin: 1em 2%;
+    display: block;*/
+    
+  }
+
+  header.mainheader {
+    height: 100%;
+    padding-top: 2.5rem;
+    margin-top: 0;
+  }
+
+  main.container {
+
+  }
 
 }
+  
+
 
 
 /*

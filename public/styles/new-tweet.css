@@ -60,10 +60,14 @@ article {
   margin-bottom: 20px;
 }
 
-article:hover {
+article:first-of-type {
+  margin-top: 1rem;
+}
 
-  border-right: solid 7px blue;
-  border-bottom: solid 7px blue;
+article:hover {
+  box-shadow: 7px 7px lightblue;
+  /*border-right: solid 7px blue;
+  border-bottom: solid 7px blue;*/
 }
 
 .handle {

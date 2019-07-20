@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//const moment = require('moment');
 const tweets = [
   
 ];
@@ -30,8 +31,6 @@ $(document).ready(function() {
   
   //POST TWEET INFO TO /TWEETS
   $('#form').submit(function(event) {
-    $('#input-text').val("");
-    $('.counter').text("140").css('color', 'black');
     event.preventDefault();
     if ($('#input-text').val().length > 140) {
       $errormsg.text("Your message is too long! Messages must be less than 140 characters.");
@@ -48,6 +47,8 @@ $(document).ready(function() {
         loadTweet();
       });
     }
+    $('#input-text').val("");
+    $('.counter').text("140").css('color', 'black');
   });
   
   //GET TWEETS FROM /TWEETS AND PASS TO RENDER TWEETS
@@ -71,12 +72,18 @@ $(document).ready(function() {
     $headerspan.append($img, $user);
     $header.append($headerspan, $handle);
 
-    // tweet body here
+    //Tweet body here
     const $tweetbody = $('<div>').addClass('tweet-text').text(content.text);
 
-    // tweet footer here
+    //Time formatting
+    //let formattedNow = Date
+    let time = moment(created_at).fromNow();
+    //let formattedCreatedAt = moment.unix(created_at);
+
+
+    //Tweet footer here
     const $footer = $('<footer>');
-    const $time = $('<span>').addClass('time').text(created_at);
+    const $time = $('<span>').addClass('time').text(time); //MOMENTS
     const $icons = $('<span>').addClass('icons');
     const $heart = $('<i>').addClass('fas fa-heart').attr('id', 'heart');
     const $retweet = $('<i>').addClass('fas fa-retweet').attr('id', 'retweet');
@@ -92,7 +99,8 @@ $(document).ready(function() {
 
   };
 
-
+//Daysfromnow or Datefromnow
+//moments js cdn function... jquery wrapper?
 
   // loops through tweets
   // calls createTweetElement for each tweet
@@ -100,13 +108,15 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     $('#tweet-container').empty();
     tweets.forEach((element) => {
-      $('#tweet-container').append(createTweet(element));
+      $('#tweet-container').prepend(createTweet(element));
     });
   };
 
   loadTweet();
   
 });
+
+
 
 
 
