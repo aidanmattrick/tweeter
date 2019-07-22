@@ -4,11 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-//const moment = require('moment');
-const tweets = [
-  
-];
-
 $(document).ready(function() {
   $('.new-tweet').hide();
 
@@ -75,15 +70,12 @@ $(document).ready(function() {
     //Tweet body here
     const $tweetbody = $('<div>').addClass('tweet-text').text(content.text);
 
-    //Time formatting
-    //let formattedNow = Date
     let time = moment(created_at).fromNow();
-    //let formattedCreatedAt = moment.unix(created_at);
 
 
     //Tweet footer here
     const $footer = $('<footer>');
-    const $time = $('<span>').addClass('time').text(time); //MOMENTS
+    const $time = $('<span>').addClass('time').text(time); 
     const $icons = $('<span>').addClass('icons');
     const $heart = $('<i>').addClass('fas fa-heart').attr('id', 'heart');
     const $retweet = $('<i>').addClass('fas fa-retweet').attr('id', 'retweet');
@@ -99,8 +91,6 @@ $(document).ready(function() {
 
   };
 
-//Daysfromnow or Datefromnow
-//moments js cdn function... jquery wrapper?
 
   // loops through tweets
   // calls createTweetElement for each tweet
